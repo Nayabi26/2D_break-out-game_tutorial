@@ -4,7 +4,6 @@ const ctx= canvas.getContext("2d");  /* Create a 2d rendering tool that use to d
 /** Creating Function draw will call upon repeatedly with setInterval for showing the movemnts of ball */
 let x = canvas.width / 2;
 let y = canvas.height - 30;
-
 let dx=2;
 let dy=-2;
 
