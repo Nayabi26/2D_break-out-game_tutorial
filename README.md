@@ -4,9 +4,9 @@ This project is begginner friendly .
 Using html5 for structuring the game , css for styling and positioning and js for creating mechanics.
 **Game Mechanics** are the basic aspects of the game which determine how players interact with each other and games elements.It can be rendering and moving images,collision detection,control mechanisms etc.. 
 Here are the list of steps we going to implement for completing this task
-- [ ]  Create canvas and draw on it.
-- [ ]  Move the ball
-- [ ]  Bounce off the wall
+- [x]  Create canvas and draw on it.
+- [x]  Move the ball
+- [x]  Bounce off the wall
 - [ ]  Paddle and keyboard Controls
 - [ ]  Game Over
 - [ ]  Build the brick field
