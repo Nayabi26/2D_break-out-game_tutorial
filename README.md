@@ -7,8 +7,8 @@ Here are the list of steps we going to implement for completing this task
 - [x]  Create canvas and draw on it.
 - [x]  Move the ball
 - [x]  Bounce off the wall
-- [ ]  Paddle and keyboard Controls
-- [ ]  Game Over
+- [x]  Paddle and keyboard Controls
+- [x]  Game Over
 - [ ]  Build the brick field
 - [ ]  Collision Detection
 - [ ]  Track the score and win
