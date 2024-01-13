@@ -9,7 +9,7 @@ Here are the list of steps we going to implement for completing this task
 - [x]  Bounce off the wall
 - [x]  Paddle and keyboard Controls
 - [x]  Game Over
-- [ ]  Build the brick field
+- [x]  Build the brick field
 - [ ]  Collision Detection
 - [ ]  Track the score and win
 - [ ]  Mouse controls
