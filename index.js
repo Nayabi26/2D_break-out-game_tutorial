@@ -67,12 +67,9 @@ function drawPaddle(){
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
-<<<<<<< HEAD
     drawPaddle();
     // checking the collision with the wall . if ball collid with wall we change the diection
-=======
     // checking the collision with the wall . if ball collid with wall we change the direction
->>>>>>> 2c1fb733ba511832ce3df2d7c03d3cf9b7f5c596
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
       
