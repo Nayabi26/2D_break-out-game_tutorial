@@ -21,7 +21,7 @@ function drawBall(){
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
-    // checking the collision with the wall . if ball collid with wall we change the diection
+    // checking the collision with the wall . if ball collid with wall we change the direction
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
       
