@@ -33,7 +33,7 @@ var bricks = [];
 for(var c=0; c<brickColumnCount; c++) {
     bricks[c] = [];
     for(var r=0; r<brickRowCount; r++) {
-        bricks[c][r] = { x: 0, y: 0 };
+        bricks[c][r] = { x: 0, y: 0,status:1 };
     }
 }
 
@@ -65,6 +65,22 @@ function keyUpHandler(e)
    }
 }
 
+//Collision Detection Function
+function collisionDetection(){
+  for(let c=0;c<brickColumnCount;c++)
+  {
+    for(let r=0;r<brickRowCount;r++)
+    {
+      const b= bricks[c][r]
+      if (b.status == 1) {
+        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+            dy = -dy;
+            b.status = 0;
+        }
+    }
+  }
+}
+}
 function drawBall(){
    
     ctx.beginPath();
@@ -88,6 +104,7 @@ function drawPaddle(){
 function drawBricks() {
     for(var c=0; c<brickColumnCount; c++) {
         for(var r=0; r<brickRowCount; r++) {
+          if (bricks[c][r].status === 1) {  //Checking status if stat is 1 then brick will draw if not it will not shown there
             var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
             var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
             bricks[c][r].x = brickX;
@@ -97,6 +114,7 @@ function drawBricks() {
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
+          }
         }
     }
 }
@@ -106,6 +124,7 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
+    collisionDetection();
     // checking the collision with the wall . if ball collid with wall we change the diection
     // checking the collision with the wall . if ball collid with wall we change the direction
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
