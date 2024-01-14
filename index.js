@@ -43,6 +43,7 @@ for(var c=0; c<brickColumnCount; c++) {
 //Adding EventListener to the document
 document.addEventListener("keydown",keyDownHandler,false);
 document.addEventListener("keyup",keyUpHandler,false);
+document.addEventListener("mousemove",mouseMoveHandler,false);
 
 //Defining each event 
 function keyDownHandler(e)
@@ -66,6 +67,13 @@ function keyUpHandler(e)
    {
     leftPressed=false;
    }
+}
+
+function mouseMoveHandler(e) {
+  const relativeX = e.clientX - canvas.offsetLeft;
+  if (relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth / 2;
+  }
 }
 
 //Collision Detection Function
