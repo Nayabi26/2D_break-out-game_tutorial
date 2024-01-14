@@ -31,6 +31,9 @@ const brickOffsetLeft = 30;
 // Defining score variables
 let score=0;
 
+// Defining lives varables
+let lives=3;
+
 // Creating 2d for storing bricks
 var bricks = [];
 for(var c=0; c<brickColumnCount; c++) {
@@ -91,7 +94,8 @@ function collisionDetection(){
             if(score===brickColumnCount*brickRowCount){
               alert("You WIN !!!! Congragulations !!!!");
               document.location.reload();
-              clearInterval(interval); // Needed for Chrome to end game
+              //clearInterval(interval);  Needed for Chrome to end game
+              requestAnimationFrame(draw);
             }
         }
     }
@@ -106,6 +110,13 @@ function drawScore(){
  ctx.fillText(`Score: ${score}`, 8, 20);
 }
 
+//lives function
+function drawLives()
+{
+  ctx.font="16px Arial";
+ ctx.fillStyle = "#0095DD";
+ ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+}
 function drawBall(){
    
     ctx.beginPath();
@@ -150,6 +161,7 @@ function draw() {
     drawBall();
     drawPaddle();
     drawScore();
+    drawLives();
     collisionDetection();
     // checking the collision with the wall . if ball collid with wall we change the diection
     // checking the collision with the wall . if ball collid with wall we change the direction
@@ -164,9 +176,21 @@ function draw() {
           dy = -dy;
           
         } else {
-          alert("GAME OVER");
-          document.location.reload();
-          clearInterval(interval);
+          lives--;
+          if(!lives){
+            alert("GAME OVER");
+            document.location.reload();
+           // clearInterval(interval);  Needed for Chrome to end game
+           requestAnimationFrame(draw);
+          }
+          else
+          {
+            x = canvas.width / 2;
+            y = canvas.height - 30;
+            dx = 2;
+            dy = -2;
+            paddleX = (canvas.width - paddleWidth) / 2;
+          }
         }
       }
   // Adding paddle moving logic
@@ -180,6 +204,8 @@ function draw() {
     }
     x += dx;
     y += dy;
+    requestAnimationFrame(draw);
    
 }
-const interval=setInterval(draw,10);
+/**const interval=setInterval(draw,10);*/ // We are replacing this with equest anmation frame which is better game rendering than fixed time frames 
+draw();
