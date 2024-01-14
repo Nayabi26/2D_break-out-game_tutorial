@@ -12,5 +12,5 @@ Here are the list of steps we going to implement for completing this task
 - [x]  Build the brick field
 - [x]  Collision Detection
 - [x]  Track the score and win
-- [ ]  Mouse controls
-- [ ]  Finishing up.
+- [x]  Mouse controls
+- [x]  Finishing up.
