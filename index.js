@@ -28,6 +28,9 @@ const brickPadding = 10;
 const brickOffsetTop = 30;
 const brickOffsetLeft = 30;
 
+// Defining score variables
+let score=0;
+
 // Creating 2d for storing bricks
 var bricks = [];
 for(var c=0; c<brickColumnCount; c++) {
@@ -76,11 +79,25 @@ function collisionDetection(){
         if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
             dy = -dy;
             b.status = 0;
+            score++;
+            if(score===brickColumnCount*brickRowCount){
+              alert("You WIN !!!! Congragulations !!!!");
+              document.location.reload();
+              clearInterval(interval); // Needed for Chrome to end game
+            }
         }
     }
   }
 }
 }
+
+//Score function
+function drawScore(){
+ ctx.font="16px Arial";
+ ctx.fillStyle = "#0095DD";
+ ctx.fillText(`Score: ${score}`, 8, 20);
+}
+
 function drawBall(){
    
     ctx.beginPath();
@@ -124,6 +141,7 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
+    drawScore();
     collisionDetection();
     // checking the collision with the wall . if ball collid with wall we change the diection
     // checking the collision with the wall . if ball collid with wall we change the direction
